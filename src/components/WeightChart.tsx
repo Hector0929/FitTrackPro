@@ -72,10 +72,11 @@ export default function WeightChart({ data }: WeightChartProps) {
                             color: '#fff',
                             fontSize: '13px',
                         }}
-                        formatter={(value: number, name: string) => [
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        formatter={((value: any, name: any) => [
                             `${value} kg`,
                             name === 'weight' ? '體重' : '趨勢',
-                        ]}
+                        ]) as any}
                     />
                     <ReferenceLine
                         y={avgWeight}
